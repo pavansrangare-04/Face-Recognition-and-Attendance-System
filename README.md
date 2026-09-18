@@ -5,8 +5,8 @@ A real-time face recognition attendance system built using Python, OpenCV, and t
 ---
 ## Live Demo
 
-🌐 Website: https://riddhi0124.gi
-thub.io/Face-Recognition-and-Attendance-Project/
+🌐 Website: https://pavansrangare-04.github.io/Face-Recognition-and-Attendance-System/
+
 ## Features
 
 * Real-time webcam face detection
@@ -33,7 +33,7 @@ thub.io/Face-Recognition-and-Attendance-Project/
 Face-Recognition-Attendance-System/
 │
 ├── ImagesAttendance/
-│   ├── Riddhi.jpg
+│   ├── Pavan.jpg
 │   ├── Neha.jpg
 │   └── StudentName.jpg
 │
@@ -63,7 +63,7 @@ Example attendance output:
 
 ```text
 Name,Date,Time,Status
-SHREYA,2026-05-17,11:15:30,Present
+PAVAN,2026-05-17,11:15:30,Present
 PRAGATI,2026-05-17,11:16:10,Present
 ```
 
@@ -74,8 +74,8 @@ PRAGATI,2026-05-17,11:16:10,Present
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Riddhi0124/Face-Recognition-and-Attendance-Project.git
-cd Face-Recognition-and-Attendance-Project
+git clone https://github.com/pavansrangare-04/Face-Recognition-and-Attendance-System.git
+cd Face-Recognition-and-Attendance-System
 ```
 
 ### 2. Create Virtual Environment
@@ -120,7 +120,7 @@ Example:
 ImagesAttendance/
 ├── Aryan.jpg
 ├── Neha.jpg
-├── Riddhi.jpg
+├── Pavan.jpg
 ```
 
 The filename becomes the recognized attendance name.
@@ -156,6 +156,6 @@ This project is licensed under the MIT License.
 
 ## Author
 
-**Shreya Kamble**
+**Pavan Srangare**
 
-GitHub: [https://github.com/Riddhi0124](https://github.com/Riddhi0124)
+GitHub: [https://github.com/pavansrangare-04](https://github.com/pavansrangare-04)

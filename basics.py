@@ -4,8 +4,8 @@ import cv2
 
 BASE_DIR = Path(__file__).resolve().parent
 IMAGE_DIR = BASE_DIR / "ImagesAttendance"
-REFERENCE_IMAGE = IMAGE_DIR / "Riddhi.jpg"
-TEST_IMAGE = IMAGE_DIR / "neha.jpg"
+REFERENCE_IMAGE = IMAGE_DIR / "Pavan.jpg"
+TEST_IMAGE = IMAGE_DIR / "sample.jpg"
 
 
 def main() -> int:

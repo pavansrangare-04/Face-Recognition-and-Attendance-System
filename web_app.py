@@ -216,7 +216,7 @@ def repair_attendance_file():
                 if not line:
                     continue
                 
-                # Check for merged header line issue (e.g. StatusSHREYA)
+                # Check for merged header line issue (e.g. StatusPAVAN)
                 if "Status" in line and "Name" in line:
                     idx = line.find("Status")
                     record_part = line[idx + len("Status"):].strip()
