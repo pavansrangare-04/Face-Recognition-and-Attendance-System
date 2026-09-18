@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Face Recognition Attendance System | Shreya Kamble</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="Face Recognition Attendance System home">
+        <span class="brand-mark">FR</span>
+        <span>Attendance AI</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" data-nav-links>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#tech">Tech Stack</a>
+        <a href="#future">Roadmap</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Python • OpenCV • Real-time Attendance</p>
+        <h1>Face Recognition Attendance System</h1>
+        <p class="hero-copy">
+          A real-time face recognition attendance system that detects faces through a webcam,
+          identifies registered users, and records attendance in CSV format.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://github.com/Riddhi0124/Face-Recognition-and-Attendance-Project.git" target="_blank" rel="noopener">GitHub Repo</a>
+          <a class="button secondary" href="#" aria-label="Live demo placeholder">Live Demo</a>
+        </div>
+      </div>
+
+      <div class="hero-panel" aria-label="Attendance system preview">
+        <div class="camera-card">
+          <div class="camera-topbar">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="scan-window">
+            <div class="face-outline">
+              <span class="scan-line"></span>
+            </div>
+          </div>
+          <div class="attendance-log">
+            <div>
+              <span class="status-dot"></span>
+              <strong>Shreya Kamble</strong>
+            </div>
+            <span>Present • CSV saved</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-heading">
+        <p class="eyebrow">Features</p>
+        <h2>Built for quick, reliable attendance tracking</h2>
+      </div>
+
+      <div class="grid feature-grid">
+        <article class="card">
+          <span class="card-icon">01</span>
+          <h3>Real-time Detection</h3>
+          <p>Uses a webcam feed to detect faces live and process attendance without manual entry.</p>
+        </article>
+        <article class="card">
+          <span class="card-icon">02</span>
+          <h3>Face Recognition</h3>
+          <p>Matches detected faces against known images using the face_recognition library.</p>
+        </article>
+        <article class="card">
+          <span class="card-icon">03</span>
+          <h3>CSV Attendance</h3>
+          <p>Stores attendance records in a simple CSV file for easy review, sharing, and analysis.</p>
+        </article>
+        <article class="card">
+          <span class="card-icon">04</span>
+          <h3>Simple Workflow</h3>
+          <p>Designed as a practical project with a clear dataset, recognition flow, and output file.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split-section" id="how-it-works">
+      <div class="section-heading">
+        <p class="eyebrow">How It Works</p>
+        <h2>From webcam frame to attendance record</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span>1</span>
+          <div>
+            <h3>Load Known Faces</h3>
+            <p>The system reads stored images, extracts face encodings, and prepares them for matching.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span>2</span>
+          <div>
+            <h3>Capture Webcam Feed</h3>
+            <p>OpenCV accesses the camera and processes each frame to locate faces in real time.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span>3</span>
+          <div>
+            <h3>Compare and Identify</h3>
+            <p>Detected face encodings are compared with known encodings to identify the person.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span>4</span>
+          <div>
+            <h3>Mark Attendance</h3>
+            <p>Once recognized, the person is marked present and the record is saved in CSV format.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section screenshots-section" id="screenshots">
+      <div class="section-heading">
+        <p class="eyebrow">Screenshots</p>
+        <h2>Project demo preview</h2>
+      </div>
+
+      <div class="screenshots-grid">
+        <article class="screenshot-card">
+          <div class="screenshot-media">
+            <img src="images/webcam-demo.png" alt="Webcam demo showing real-time face detection with the recognized name Riddhi">
+          </div>
+          <div class="screenshot-content">
+            <span class="screenshot-tag">Webcam Recognition</span>
+            <h3>Real-Time Face Detection</h3>
+            <p>
+              The system detects a face through the webcam, matches it with stored student images,
+              and displays the recognized name in real time.
+            </p>
+          </div>
+        </article>
+
+        <article class="screenshot-card">
+          <div class="screenshot-media csv-media">
+            <img src="images/attendance-demo.png" alt="Attendance CSV file showing present records for recognized students">
+          </div>
+          <div class="screenshot-content">
+            <span class="screenshot-tag">Attendance Record</span>
+            <h3>Attendance CSV Logging</h3>
+            <p>
+              Recognized students are automatically logged into a CSV file with their name, date,
+              time, and attendance status.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="tech">
+      <div class="section-heading">
+        <p class="eyebrow">Technologies Used</p>
+        <h2>Compact stack, practical results</h2>
+      </div>
+
+      <div class="tech-list">
+        <span>Python</span>
+        <span>OpenCV</span>
+        <span>face_recognition</span>
+        <span>NumPy</span>
+        <span>CSV</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+      </div>
+    </section>
+
+    <section class="section future-section" id="future">
+      <div class="section-heading">
+        <p class="eyebrow">Future Improvements</p>
+        <h2>Ideas to make the system production-ready</h2>
+      </div>
+
+      <div class="improvement-list">
+        <article>
+          <h3>Admin Dashboard</h3>
+          <p>Add a web interface to view, filter, and export attendance records.</p>
+        </article>
+        <article>
+          <h3>Database Storage</h3>
+          <p>Move from CSV files to a database for stronger search and reporting.</p>
+        </article>
+        <article>
+          <h3>Authentication</h3>
+          <p>Protect attendance data with login roles for admins and users.</p>
+        </article>
+        <article>
+          <h3>Analytics Reports</h3>
+          <p>Generate summaries for attendance percentage, dates, and student history.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Designed and developed by <strong>Shreya Kamble</strong></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

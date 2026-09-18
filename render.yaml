@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: face-attendance-system
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn web_app:app --bind 0.0.0.0:$PORT --workers 2 --threads 2 --timeout 120"
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false # Set this in Render Dashboard to your Supabase connection string
+      - key: RECOGNITION_THRESHOLD
+        value: "0.55"
+      - key: COOLDOWN_SECONDS
+        value: "10"
+      - key: ATTENDANCE_ALERT_THRESHOLD
+        value: "75"
