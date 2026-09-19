@@ -7,6 +7,7 @@
     <meta name="description" content="Faculty dashboard for department-level attendance management">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         (function() {
             var theme = localStorage.getItem('appTheme') || 'dark';
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
         .trend-bar-wrap { display:flex; align-items:center; gap:8px; }
-        .trend-bar { flex:1; height:6px; background:var(--border-subtle); border-radius:999px; overflow:hidden; }
+        .trend-bar { flex:1; height:6px; background:rgba(255,255,255,0.08); border-radius:999px; overflow:hidden; }
         .trend-bar-fill { height:100%; background:var(--accent); border-radius:999px; transition:width .6s ease; }
         .trend-bar-fill.good { background:var(--status-present); }
         .trend-bar-fill.warn { background:var(--status-late); }
@@ -28,10 +29,33 @@
         .trend-pct { font-size:12px; font-weight:600; color:var(--text-secondary); min-width:36px; text-align:right; }
         .low-att-row td { color:var(--status-absent) !important; }
         .dept-summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-bottom:24px; }
-        .dept-card { background:var(--surface); border:1px solid var(--border-subtle); border-radius:12px; padding:20px 16px; }
-        .dept-card .label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-muted); margin-bottom:6px; }
-        .dept-card .value { font-size:28px; font-weight:700; color:var(--text-primary); letter-spacing:-0.03em; }
-        .section-panel { background:var(--surface); border:1px solid var(--border-subtle); border-radius:12px; padding:24px; margin-bottom:24px; }
+        .dept-card { 
+            background:var(--surface); 
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border:1px solid var(--border-subtle); 
+            border-radius:var(--radius-lg); 
+            padding:20px 18px; 
+            box-shadow: var(--glass-shadow);
+            transition: all 0.25s ease;
+        }
+        .dept-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-strong);
+            box-shadow: var(--glass-shadow-hover);
+        }
+        .dept-card .label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-muted); margin-bottom:6px; font-weight:600; }
+        .dept-card .value { font-size:28px; font-weight:800; color:var(--text-primary); letter-spacing:-0.03em; }
+        .section-panel { 
+            background:var(--surface); 
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border:1px solid var(--border-subtle); 
+            border-radius:var(--radius-xl); 
+            padding:24px; 
+            margin-bottom:24px; 
+            box-shadow: var(--glass-shadow);
+        }
         .section-panel h2 { font-size:15px; font-weight:600; margin-bottom:16px; }
         .tabs-nav { display:flex; gap:4px; margin-bottom:24px; border-bottom:1px solid var(--border-subtle); }
         .tab-btn { padding:10px 16px; font-size:13px; font-weight:600; color:var(--text-secondary); border:none; background:none; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; transition:color .18s,border-color .18s; font-family:var(--font-family); }

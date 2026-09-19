@@ -7,6 +7,7 @@
     <meta name="description" content="Student attendance portal — view your attendance records and subject-wise breakdown">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         (function() {
             var theme = localStorage.getItem('appTheme') || 'dark';
@@ -19,30 +20,64 @@
     </script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
-        .alert-card { border:1px solid rgba(248,113,113,.25); background:rgba(248,113,113,.07); border-radius:12px; padding:16px 20px; display:flex; align-items:flex-start; gap:12px; margin-bottom:24px; }
+        .alert-card { 
+            border:1px solid rgba(248,113,113,.3); 
+            background:rgba(248,113,113,.12); 
+            backdrop-filter: blur(16px);
+            border-radius:var(--radius-lg); 
+            padding:16px 20px; 
+            display:flex; 
+            align-items:flex-start; 
+            gap:12px; 
+            margin-bottom:24px; 
+            box-shadow: 0 4px 16px rgba(248,113,113,.15);
+        }
         .alert-card.hidden { display:none; }
         .alert-card svg { color:var(--status-absent); flex-shrink:0; margin-top:1px; }
-        .alert-card-text h3 { font-size:13px; font-weight:600; color:var(--status-absent); margin-bottom:4px; }
+        .alert-card-text h3 { font-size:13.5px; font-weight:700; color:var(--status-absent); margin-bottom:4px; }
         .alert-card-text p  { font-size:12px; color:var(--text-secondary); line-height:1.5; }
         .student-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px; margin-bottom:24px; }
-        .s-tile { background:var(--surface); border:1px solid var(--border-subtle); border-radius:12px; padding:18px 16px; }
-        .s-tile .label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-muted); margin-bottom:4px; }
-        .s-tile .value { font-size:28px; font-weight:700; color:var(--text-primary); letter-spacing:-0.03em; }
+        .s-tile { 
+            background:var(--surface); 
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border:1px solid var(--border-subtle); 
+            border-radius:var(--radius-lg); 
+            padding:18px 16px; 
+            box-shadow: var(--glass-shadow);
+            transition: all 0.25s ease;
+        }
+        .s-tile:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-strong);
+            box-shadow: var(--glass-shadow-hover);
+        }
+        .s-tile .label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-muted); margin-bottom:4px; font-weight:600; }
+        .s-tile .value { font-size:28px; font-weight:800; color:var(--text-primary); letter-spacing:-0.03em; }
         .ring-wrap { display:flex; flex-direction:column; align-items:center; justify-content:center; margin:16px 0 24px; }
-        .ring-label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-muted); margin-top:8px; }
-        .section-panel { background:var(--surface); border:1px solid var(--border-subtle); border-radius:12px; padding:24px; margin-bottom:24px; }
-        .section-panel h2 { font-size:15px; font-weight:600; margin-bottom:16px; }
-        .subject-row { display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid var(--border-subtle); }
+        .ring-label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-muted); margin-top:8px; font-weight:600; }
+        .section-panel { 
+            background:var(--surface); 
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border:1px solid var(--border-subtle); 
+            border-radius:var(--radius-xl); 
+            padding:24px; 
+            margin-bottom:24px; 
+            box-shadow: var(--glass-shadow);
+        }
+        .section-panel h2 { font-size:15px; font-weight:700; margin-bottom:16px; }
+        .subject-row { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
         .subject-row:last-child { border-bottom:none; }
-        .subject-name { flex:1; font-size:13px; font-weight:600; color:var(--text-primary); }
+        .subject-name { flex:1; font-size:13.5px; font-weight:600; color:var(--text-primary); }
         .subject-code { font-size:11px; color:var(--text-muted); }
         .subject-bar-wrap { width:160px; }
-        .subject-bar { height:6px; background:var(--border-subtle); border-radius:999px; overflow:hidden; }
+        .subject-bar { height:6px; background:rgba(255,255,255,0.08); border-radius:999px; overflow:hidden; }
         .subject-bar-fill { height:100%; border-radius:999px; transition:width .6s ease; }
-        .subject-bar-fill.good { background:var(--status-present); }
-        .subject-bar-fill.warn { background:var(--status-late); }
-        .subject-bar-fill.bad  { background:var(--status-absent); }
-        .subject-pct { min-width:44px; text-align:right; font-size:13px; font-weight:600; }
+        .subject-bar-fill.good { background:var(--status-present); box-shadow: 0 0 8px var(--status-present); }
+        .subject-bar-fill.warn { background:var(--status-late); box-shadow: 0 0 8px var(--status-late); }
+        .subject-bar-fill.bad  { background:var(--status-absent); box-shadow: 0 0 8px var(--status-absent); }
+        .subject-pct { min-width:44px; text-align:right; font-size:13px; font-weight:700; }
         .subject-pct.good { color:var(--status-present); }
         .subject-pct.warn { color:var(--status-late); }
         .subject-pct.bad  { color:var(--status-absent); }
